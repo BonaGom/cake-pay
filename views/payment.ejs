@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+    <script>
+        const IMP = window.IMP; // 생략해도 괜찮습니다.
+        IMP.init("imp41331187"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
+    </script>
+</head>
+<body>
+<div>
+    가격: &nbsp;<input type="text" id="money"/>
+</div>
+<br/>
+<button onclick="requestPay()">결제하기</button>
+<script>
+
+    function requestPay() {
+
+        const money = $("#money").val();
+
+        $.ajax({
+            url : '/pay',
+            type : 'POST',
+            data : 'email=deathquin@gmail.com&id=deathquin&money='+money,
+            dataType: "json",
+            cache: true,
+            success : function(result) {
+                console.log(result);
+                if(result.result) {
+                    const order = result.message;
+                    console.log(result.message);
+                    console.log(order._id);
+                    console.log(order.total.amount);
+                    console.log(order.currency.payment.code);
+                    console.log(order.customer.name.full);
+                    console.log(order.customer.mobile || order.customer.phone);
+                    console.log(order.customer.email);
+
+                    // 실제 결제 모듈
+                    IMP.request_pay({
+                        pg:             'inicis',
+                        pay_method:     'card',
+                        merchant_uid:   order._id,
+                        name:           order._id,
+                        amount:         order.total.amount,
+                        currency:       order.currency.payment.code,
+                        buyer_name:     order.customer.name.full,
+                        buyer_tel:      order.customer.mobile || order.customer.phone,
+                        buyer_email:    order.customer.email || null,
+                    }, function (response) {
+                        console.log(response);
+                        if (response.success) {
+                            // 결제 성공시
+                            console.log("PAYMENT SUCCESS");
+                        } else {
+                            // 결제 실패시
+                            console.log("PAYMENT FAIL");
+                        }
+
+                    });
+
+                } else {
+                    alert(result.message);
+                }
+            },
+            error: function(err) {
+                alert("예상치 못한 에러가 발생했습니다. 잠시 후 다시 시도해주세요.");
+            }
+        });
+
+    }
+
+    /*function requestPay() {
+
+    }*/
+
+</script>
+</body>
+</html>
