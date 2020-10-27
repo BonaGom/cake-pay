@@ -20,6 +20,7 @@ router.get('/', (req, res, next) => {
 
 /**
  * @api {get} /order/user/:orderId/:token 사용자 주문 정보 가져오기
+ * @apiSampleRequest /order/user/:orderId/:token
  * @apiName 사용자 주문 정보 가져오기
  * @apiGroup Order
  *
@@ -76,6 +77,7 @@ router.get('/user/:orderId/:token', (req, res, next) => {
 
 /**
  * @api {post} /order/cancel 사용자 주문 취소하기 (결제대기 상태)
+ * @apiSampleRequest /order/cancel
  * @apiName 사용자 주문 취소하기 (결제대기 상태)
  * @apiGroup Order
  *
@@ -130,6 +132,7 @@ router.post('/cancel', (req, res, next) => {
 
 /**
  * @api {post} /order/refund 사용자 주문 취소 (결제완료 상태)
+ * @apiSampleRequest /order/refund
  * @apiName 사용자 주문 취소 (결제완료 상태)
  * @apiGroup Order
  *
@@ -194,6 +197,7 @@ router.post('/refund', (req, res, next) => {
 
 /**
  * @api {get} /order/list/:token 고객의 주문 상품 리스트
+ * @apiSampleRequest /order/list/:token
  * @apiName 고객의 주문 상품 리스트
  * @apiGroup Order
  *

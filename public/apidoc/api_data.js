@@ -3,6 +3,11 @@ define({ "api": [
     "type": "get",
     "url": "/order/list/:token",
     "title": "고객의 주문 상품 리스트",
+    "sampleRequest": [
+      {
+        "url": "/order/list/:token"
+      }
+    ],
     "name": "_____________",
     "group": "Order",
     "parameter": {
@@ -62,6 +67,11 @@ define({ "api": [
     "type": "get",
     "url": "/order/user/:orderId/:token",
     "title": "사용자 주문 정보 가져오기",
+    "sampleRequest": [
+      {
+        "url": "/order/user/:orderId/:token"
+      }
+    ],
     "name": "______________",
     "group": "Order",
     "parameter": {
@@ -128,6 +138,11 @@ define({ "api": [
     "type": "post",
     "url": "/order/refund",
     "title": "사용자 주문 취소 (결제완료 상태)",
+    "sampleRequest": [
+      {
+        "url": "/order/refund"
+      }
+    ],
     "name": "___________________",
     "group": "Order",
     "parameter": {
@@ -208,6 +223,11 @@ define({ "api": [
     "type": "post",
     "url": "/order/cancel",
     "title": "사용자 주문 취소하기 (결제대기 상태)",
+    "sampleRequest": [
+      {
+        "url": "/order/cancel"
+      }
+    ],
     "name": "_____________________",
     "group": "Order",
     "parameter": {
@@ -339,6 +359,11 @@ define({ "api": [
     "type": "post",
     "url": "/pay",
     "title": "결제 등록",
+    "sampleRequest": [
+      {
+        "url": "/pay"
+      }
+    ],
     "name": "_____",
     "group": "Pay",
     "parameter": {
@@ -489,6 +514,11 @@ define({ "api": [
     "type": "get",
     "url": "/product/detail/:productId",
     "title": "상품 정보",
+    "sampleRequest": [
+      {
+        "url": "/product/detail/:productId"
+      }
+    ],
     "name": "_____",
     "group": "Product",
     "parameter": {

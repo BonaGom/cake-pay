@@ -19,6 +19,7 @@ router.get('/', (req, res, next) => {
 
 /**
  * @api {post} /pay 결제 등록
+ * @apiSampleRequest /pay
  * @apiName 결제 등록
  * @apiGroup Pay
  *

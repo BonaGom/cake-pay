@@ -21,6 +21,7 @@ router.get('/', (req, res, next) => {
 
 /**
  * @api {get} /product/detail/:productId 상품 정보
+ * @apiSampleRequest /product/detail/:productId
  * @apiName 상품 정보
  * @apiGroup Product
  *
