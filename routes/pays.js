@@ -22,20 +22,20 @@ router.get('/', (req, res, next) => {
  * @apiName 결제 등록
  * @apiGroup Pay
  *
- * @apiParam {money} product pay money.
- * @apiParam {count} product count.
- * @apiParam {product} Product Unique ID.
- * @apiParam {variant} Variant Unique ID.
- * @apiParam {paymentMethod} Payment Method Unique ID.
- * @apiParam {postcode} PosyCode.
- * @apiParam {state} State.
- * @apiParam {city} City.
- * @apiParam {address1} etc address 1.
- * @apiParam {address2} etc address 2.
- * @apiParam {name} Buy User Name.
- * @apiParam {mobile} Buy User Mobile.
- * @apiParam {phone} Buy User Phone.
- * @apiParam {customer} User Token.
+ * @apiParam {String} money product pay money.
+ * @apiParam {String} count product count.
+ * @apiParam {String} product Product Unique ID.
+ * @apiParam {String} variant Variant Unique ID.
+ * @apiParam {String} paymentMethod Payment Method Unique ID.
+ * @apiParam {String} postcode Post Code.
+ * @apiParam {String} state State Name.
+ * @apiParam {String} city City.
+ * @apiParam {String} address1 etc address 1.
+ * @apiParam {String} address2 etc address 2.
+ * @apiParam {String} name Buy User Name.
+ * @apiParam {String} mobile Buy User Mobile.
+ * @apiParam {String} phone Buy User Phone.
+ * @apiParam {String} customer User Token.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.

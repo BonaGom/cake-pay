@@ -69,6 +69,7 @@ router.get('/detail/:productId', (req, res, next) => {
 
 /**
  * @api {get} /product/list 상품 정보 리스트
+ * @apiSampleRequest /product/list
  * @apiName 상품 정보 리스트
  * @apiGroup Product
  *

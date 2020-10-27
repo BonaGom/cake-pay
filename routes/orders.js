@@ -23,8 +23,8 @@ router.get('/', (req, res, next) => {
  * @apiName 사용자 주문 정보 가져오기
  * @apiGroup Order
  *
- * @apiParam {orderId} Product Order Unique ID.
- * @apiParam {token} User Token.
+ * @apiParam {String} orderId Product Order Unique ID.
+ * @apiParam {String} token User Token.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
@@ -79,8 +79,8 @@ router.get('/user/:orderId/:token', (req, res, next) => {
  * @apiName 사용자 주문 취소하기 (결제대기 상태)
  * @apiGroup Order
  *
- * @apiParam {orderId} Product Order Unique ID.
- * @apiParam {token} User Token.
+ * @apiParam {String} orderId Product Order Unique ID.
+ * @apiParam {String} token User Token.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
@@ -133,10 +133,10 @@ router.post('/cancel', (req, res, next) => {
  * @apiName 사용자 주문 취소하기 (결제완료 상태)
  * @apiGroup Order
  *
- * @apiParam {orderId} Product Order Unique ID.
- * @apiParam {itemId} Product Order Item Unique ID. ex) items 하위에 있는 _id를 사용합니다 (items.$._id).
- * @apiParam {refundMessage} Refund Message.
- * @apiParam {token} User Token.
+ * @apiParam {String} orderId Product Order Unique ID.
+ * @apiParam {String} itemId Product Order Item Unique ID. ex) items 하위에 있는 _id를 사용합니다 (items.$._id).
+ * @apiParam {String} refundMessage Refund Message.
+ * @apiParam {String} token User Token.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
@@ -197,7 +197,7 @@ router.post('/refund', (req, res, next) => {
  * @apiName 고객의 주문 상품 리스트
  * @apiGroup Order
  *
- * @apiParam {token} User Token.
+ * @apiParam {String} token User Token.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
@@ -246,13 +246,16 @@ router.get('/list/:token', (req, res, next) => {
 
 /**
  * @api {get} /order/detail/:orderId 고객의 상품 주문 정보 및 결제 상태 확인
+ * @apiSampleRequest /order/detail/:orderId
  * @apiName 고객의 상품 주문 정보 및 결제 상태 확인
  * @apiGroup Order
  *
- * @apiParam {orderId} Order Unique ID.
+ * @apiParam {String} orderId Order Unique ID.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
+ *
+ * @apiDescription #94 - 가입 승인
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
