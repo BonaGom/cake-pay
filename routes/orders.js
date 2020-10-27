@@ -129,8 +129,8 @@ router.post('/cancel', (req, res, next) => {
 });
 
 /**
- * @api {post} /order/refund 사용자 주문 취소하기 (결제완료 상태)
- * @apiName 사용자 주문 취소하기 (결제완료 상태)
+ * @api {post} /order/refund 사용자 주문 취소 (결제완료 상태)
+ * @apiName 사용자 주문 취소 (결제완료 상태)
  * @apiGroup Order
  *
  * @apiParam {String} orderId Product Order Unique ID.

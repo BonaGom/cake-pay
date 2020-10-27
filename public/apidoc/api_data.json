@@ -126,75 +126,9 @@
   },
   {
     "type": "post",
-    "url": "/order/cancel",
-    "title": "사용자 주문 취소하기 (결제대기 상태)",
-    "name": "_____________________",
-    "group": "Order",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "orderId",
-            "description": "<p>Product Order Unique ID.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>User Token.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "result",
-            "description": "<p>Return Result true or false.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "message",
-            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "routes/orders.js",
-    "groupTitle": "Order"
-  },
-  {
-    "type": "post",
     "url": "/order/refund",
-    "title": "사용자 주문 취소하기 (결제완료 상태)",
-    "name": "_____________________",
+    "title": "사용자 주문 취소 (결제완료 상태)",
+    "name": "___________________",
     "group": "Order",
     "parameter": {
       "fields": {
@@ -253,6 +187,72 @@
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: JSON(Response Data)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/orders.js",
+    "groupTitle": "Order"
+  },
+  {
+    "type": "post",
+    "url": "/order/cancel",
+    "title": "사용자 주문 취소하기 (결제대기 상태)",
+    "name": "_____________________",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orderId",
+            "description": "<p>Product Order Unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User Token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
           "type": "json"
         }
       ]
