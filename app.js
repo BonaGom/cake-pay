@@ -45,3 +45,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// apidoc -i routes/ -o apidoc/

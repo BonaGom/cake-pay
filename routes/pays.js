@@ -17,18 +17,55 @@ router.get('/', (req, res, next) => {
     res.send('Pay respond with a resource');
 });
 
-// 상품 결제 정보 - 주문하면 결제 대기로 변환
+/**
+ * @api {post} /pay 결제 등록
+ * @apiName 결제 등록
+ * @apiGroup Pay
+ *
+ * @apiParam {money} product pay money.
+ * @apiParam {count} product count.
+ * @apiParam {product} Product Unique ID.
+ * @apiParam {variant} Variant Unique ID.
+ * @apiParam {paymentMethod} Payment Method Unique ID.
+ * @apiParam {postcode} PosyCode.
+ * @apiParam {state} State.
+ * @apiParam {city} City.
+ * @apiParam {address1} etc address 1.
+ * @apiParam {address2} etc address 2.
+ * @apiParam {name} Buy User Name.
+ * @apiParam {mobile} Buy User Mobile.
+ * @apiParam {phone} Buy User Phone.
+ * @apiParam {customer} User Token.
+ *
+ * @apiSuccess {String} result Return Result true or false.
+ * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       result: true,
+ *       message: order(information)
+ *     }
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "result": false
+ *       "message": "Error Message"
+ *     }
+ */
+
 router.post("/", (req, res) => {
 
     const body = req.body;
     const money = body.money;
+    const count = body.count;
 
     const payload = {
         items: [{
             _id: "SMP6QX2SE37R", // Product ID
             product: 'SMP6QX2SE37R', // Product ID
             variant: 'UMAZ5Z75RB9H', // Variant ID
-            quantity: 1,
+            quantity: count,
             price: money
         }],
         address: {

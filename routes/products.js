@@ -18,6 +18,31 @@ router.get('/', (req, res, next) => {
 });
 
 // 상품 정보
+
+/**
+ * @api {get} /product/detail/:productId 상품 정보
+ * @apiName 상품 정보
+ * @apiGroup Product
+ *
+ * @apiParam {productId} Product Unique ID.
+ *
+ * @apiSuccess {String} result Return Result true or false.
+ * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       result: true,
+ *       message: JSON(Response Data)
+ *     }
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "result": false
+ *       "message": "Error Message"
+ *     }
+ */
+
 router.get('/detail/:productId', (req, res, next) => {
 
     const options = {
@@ -41,7 +66,29 @@ router.get('/detail/:productId', (req, res, next) => {
 
 });
 
-// 상품 리스트
+
+/**
+ * @api {get} /product/list 상품 정보 리스트
+ * @apiName 상품 정보 리스트
+ * @apiGroup Product
+ *
+ * @apiSuccess {String} result Return Result true or false.
+ * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       result: true,
+ *       message: JSON(Response Data)
+ *     }
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "result": false
+ *       "message": "Error Message"
+ *     }
+ */
+
 router.get('/list', (req, res, next) => {
 
     const options = {
