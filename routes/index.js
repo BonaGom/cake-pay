@@ -12,11 +12,6 @@ Clayful.config({
   client: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImNmYTAzZTkwZTJhYTk1ZjAxOWMzY2MyOWI0YTdlZjdhMTA0NDQ1MTYyNDU2ZTFjNDU1MjZkZTNjODJiOTllNmIiLCJyb2xlIjoiY2xpZW50IiwiaWF0IjoxNjAzMjgyNDYzLCJzdG9yZSI6Ik1MRFNQNFdSTU1KWi5BRjNVVFMzVUE5WjYiLCJzdWIiOiJZMjk2QTlXU1ZHSEcifQ.4Oyi-qbDX13umEaAMucEp8jOVWUTxPmiF9a2nrTxDZI"
 });
 
-const payload = {
-  connect: true,
-  userId: 'cakemap1@gmail.com'
-};
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -44,46 +39,6 @@ router.get("/test1", (req, res) => {
       res.json(err);
     } else {
       res.json(response);
-    }
-
-  });
-
-})
-
-router.get("/create", (req, res) => {
-
-  Customer.create(payload, (err, result) => {
-
-    if (err) {
-// Error case
-//console.log(err.code);
-      res.json(err);
-    } else {
-      res.json(result);
-    }
-
-//const data = result.data;
-//console.log(data);
-
-  });
-
-})
-
-
-router.get("/login", (req, res) => {
-
-  const payload = {
-    userId: 'cakemap1@gmail.com'
-  };
-
-  Customer.authenticate(payload, (err, result) => {
-
-    if (err) {
-// Error case
-//console.log(err.code);
-      res.json(err);
-    } else {
-      res.json(result);
     }
 
   });

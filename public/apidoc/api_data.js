@@ -388,21 +388,21 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "product",
-            "description": "<p>Product Unique ID.</p>"
+            "description": "<p>/product/detail/:productId 주소에서 product ID</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "variant",
-            "description": "<p>Variant Unique ID.</p>"
+            "description": "<p>/product/detail/:productId 주소에서 variants 배열의 있는 ID</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "paymentMethod",
-            "description": "<p>Payment Method Unique ID.</p>"
+            "description": "<p>클레이풀 결제 방식 Unique ID중 하나입니다. EX) 현재는 아임포트 - YURLW47P2ZGL</p>"
           },
           {
             "group": "Parameter",
@@ -430,42 +430,42 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "address1",
-            "description": "<p>etc address 1.</p>"
+            "description": "<p>기타주소를 입력 1  ex) 서울시 무슨동 어디로.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "address2",
-            "description": "<p>etc address 2.</p>"
+            "description": "<p>기타주소를 입력 2 ex) 888로.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>Buy User Name.</p>"
+            "description": "<p>구재마의 이름.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "mobile",
-            "description": "<p>Buy User Mobile.</p>"
+            "description": "<p>구매자의 핸드폰 번호.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "phone",
-            "description": "<p>Buy User Phone.</p>"
+            "description": "<p>구매자의 전화 번호.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "customer",
-            "description": "<p>User Token.</p>"
+            "description": "<p>사용자 인증 토큰 - 로그인시 token을 받습니다..</p>"
           }
         ]
       }
@@ -624,5 +624,133 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "routes/products.js",
     "groupTitle": "Product"
+  },
+  {
+    "type": "post",
+    "url": "/user",
+    "title": "유저 연동 - 클레이풀",
+    "sampleRequest": [
+      {
+        "url": "/user"
+      }
+    ],
+    "name": "____________",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User Unique ID or EMail.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/user/login",
+    "title": "유저 로그인 - 클레이풀",
+    "sampleRequest": [
+      {
+        "url": "/user/login"
+      }
+    ],
+    "name": "_____________",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User Unique ID or EMail.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
   }
 ] });

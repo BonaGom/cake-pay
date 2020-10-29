@@ -25,18 +25,18 @@ router.get('/', (req, res, next) => {
  *
  * @apiParam {String} money product pay money.
  * @apiParam {String} count product count.
- * @apiParam {String} product Product Unique ID.
- * @apiParam {String} variant Variant Unique ID.
- * @apiParam {String} paymentMethod Payment Method Unique ID.
+ * @apiParam {String} product /product/detail/:productId 주소에서 product ID
+ * @apiParam {String} variant /product/detail/:productId 주소에서 variants 배열의 있는 ID
+ * @apiParam {String} paymentMethod 클레이풀 결제 방식 Unique ID중 하나입니다. EX) 현재는 아임포트 - YURLW47P2ZGL 
  * @apiParam {String} postcode Post Code.
  * @apiParam {String} state State Name.
  * @apiParam {String} city City.
- * @apiParam {String} address1 etc address 1.
- * @apiParam {String} address2 etc address 2.
- * @apiParam {String} name Buy User Name.
- * @apiParam {String} mobile Buy User Mobile.
- * @apiParam {String} phone Buy User Phone.
- * @apiParam {String} customer User Token.
+ * @apiParam {String} address1 기타주소를 입력 1  ex) 서울시 무슨동 어디로.
+ * @apiParam {String} address2 기타주소를 입력 2 ex) 888로.
+ * @apiParam {String} name 구재마의 이름.
+ * @apiParam {String} mobile 구매자의 핸드폰 번호.
+ * @apiParam {String} phone 구매자의 전화 번호.
+ * @apiParam {String} customer 사용자 인증 토큰 - 로그인시 token을 받습니다..
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
@@ -98,7 +98,7 @@ router.post("/", (req, res) => {
             },
         },
         currency: 'KRW',
-        paymentMethod: 'YURLW47P2ZGL', // 배송방식 ID
+        paymentMethod: 'YURLW47P2ZGL', //결제방식 ID
         request: 'I DO NOT WANT ANYTHING!!',
     };
 
