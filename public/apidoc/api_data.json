@@ -1,5 +1,341 @@
 [
   {
+    "type": "post",
+    "url": "/cart/list/:token",
+    "title": "사용자 카트 리스트",
+    "sampleRequest": [
+      {
+        "url": "/cart/list/deq04j1j13"
+      }
+    ],
+    "name": "__________",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User Token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/carts.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "post",
+    "url": "/cart",
+    "title": "사용자 상품 카트 담기",
+    "sampleRequest": [
+      {
+        "url": "/cart"
+      }
+    ],
+    "name": "____________",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>Product Unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "variantId",
+            "description": "<p>Product variantId Unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "shippingId",
+            "description": "<p>shipping Unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User Token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/carts.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "delete",
+    "url": "/cart",
+    "title": "사용자 상품 카트 단일 삭제",
+    "sampleRequest": [
+      {
+        "url": "/cart"
+      }
+    ],
+    "name": "_______________",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "itemId",
+            "description": "<p>Cart Item Unique ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User Token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/carts.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "post",
+    "url": "/cart/all/delete",
+    "title": "사용자 상품 카트 전체 삭제",
+    "sampleRequest": [
+      {
+        "url": "/cart/all/delete"
+      }
+    ],
+    "name": "_______________",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User Token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/carts.js",
+    "groupTitle": "Cart"
+  },
+  {
+    "type": "get",
+    "url": "/order/all/list",
+    "title": "주문 전체 목록 보기",
+    "sampleRequest": [
+      {
+        "url": "/order/all/list"
+      }
+    ],
+    "name": "___________",
+    "group": "Order",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: JSON(Response Data)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "description": "<p>#94 - 가입 승인</p>",
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/orders.js",
+    "groupTitle": "Order"
+  },
+  {
     "type": "get",
     "url": "/order/list/:token",
     "title": "고객의 주문 상품 리스트",
@@ -626,6 +962,70 @@
     "groupTitle": "Product"
   },
   {
+    "type": "delete",
+    "url": "/user",
+    "title": "사용자 정보 삭제",
+    "sampleRequest": [
+      {
+        "url": "/user"
+      }
+    ],
+    "name": "_________",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User Unique ID.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  },
+  {
     "type": "post",
     "url": "/user",
     "title": "유저 연동 - 클레이풀",
@@ -645,6 +1045,70 @@
             "optional": false,
             "field": "userId",
             "description": "<p>User Unique ID or EMail.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/user/:userId",
+    "title": "사용자 정보 보기",
+    "sampleRequest": [
+      {
+        "url": "/user/sesso@seeso.com"
+      }
+    ],
+    "name": "____________",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>User Unique ID.</p>"
           }
         ]
       }
@@ -752,5 +1216,326 @@
     "version": "0.0.0",
     "filename": "routes/users.js",
     "groupTitle": "User"
+  },
+  {
+    "type": "delete",
+    "url": "/vendor",
+    "title": "입점사 삭제",
+    "sampleRequest": [
+      {
+        "url": "/vendor"
+      }
+    ],
+    "name": "______",
+    "group": "Vendor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vendorId",
+            "description": "<p>Vendor Register Unique ID.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/vendors.js",
+    "groupTitle": "Vendor"
+  },
+  {
+    "type": "post",
+    "url": "/vendor",
+    "title": "입점사 등록하기",
+    "sampleRequest": [
+      {
+        "url": "/vendor"
+      }
+    ],
+    "name": "________",
+    "group": "Vendor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>Vendor Slug Unique Name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Vendor Name .</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Vendor Description.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/vendors.js",
+    "groupTitle": "Vendor"
+  },
+  {
+    "type": "get",
+    "url": "/vendor/list",
+    "title": "입점사 목록보기",
+    "sampleRequest": [
+      {
+        "url": "/vendor/list"
+      }
+    ],
+    "name": "________",
+    "group": "Vendor",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/vendors.js",
+    "groupTitle": "Vendor"
+  },
+  {
+    "type": "delete",
+    "url": "/vendor/detail/:vendorId",
+    "title": "입점사 정보 보기",
+    "sampleRequest": [
+      {
+        "url": "/vendor/detail/3djd3sk"
+      }
+    ],
+    "name": "_________",
+    "group": "Vendor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "vendorId",
+            "description": "<p>Vendor Register Unique ID.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/vendors.js",
+    "groupTitle": "Vendor"
+  },
+  {
+    "type": "post",
+    "url": "/image",
+    "title": "상품 이미지 등록",
+    "sampleRequest": [
+      {
+        "url": "/image"
+      }
+    ],
+    "name": "_________",
+    "group": "image",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "image",
+            "description": "<p>Image Parameter Name.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/images.js",
+    "groupTitle": "image"
   }
 ]

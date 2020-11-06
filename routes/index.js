@@ -21,6 +21,26 @@ router.get('/test', function(req, res, next) {
   res.render('payment');
 });
 
+router.get("/login", (req, res) => {
+
+  const userId = "cakemap1@gmail.com";
+
+  const payload = {
+    userId: userId
+  };
+
+  Customer.authenticate(payload, (err, result) => {
+
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(result);
+    }
+
+  });
+
+})
+
 router.get("/test1", (req, res) => {
 
   Clayful.config({

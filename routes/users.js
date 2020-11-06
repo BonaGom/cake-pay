@@ -13,7 +13,24 @@ Clayful.config({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+
+  const options = {
+    query: {
+      userId: 'seeso@seeso.com',
+    },
+  };
+
+  Customer.list(options, (err, result) => {
+
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(result.data);
+    }
+
+  });
+
+  //res.send('respond with a resource');
 });
 
 /**
@@ -103,6 +120,229 @@ router.post("/login", (req, res) => {
       res.json(result);
     }
 
+  });
+
+})
+
+router.get("/list", (req, res) => {
+
+  const userId = req.params.userId;
+
+  const options = {
+    query: {
+      userId: 'seeso@seeso.com',
+    },
+  };
+
+  Customer.list(options, (err, result) => {
+
+    if (err) {
+      res.json(err);
+    } else {
+      console.log(result.data[0]._id);
+      res.json(result.data);
+    }
+
+  });
+
+});
+
+
+/**
+ * @api {get} /user/:userId 사용자 정보 보기
+ * @apiSampleRequest /user/sesso@seeso.com
+ * @apiName 사용자 상품 카트 담기
+ * @apiGroup User
+ *
+ * @apiParam {String} userId User Unique ID.
+ *
+ * @apiSuccess {String} result Return Result true or false.
+ * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       result: true,
+ *       message: order(information)
+ *     }
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "result": false
+ *       "message": "Error Message"
+ *     }
+ */
+
+router.get("/:userId", (req, res) => {
+
+  /*
+  {
+  "name": {
+    "first": null,
+    "last": null,
+    "full": null
+  },
+  "address": {
+    "primary": null,
+    "secondaries": []
+  },
+  "connect": true,
+  "verified": false,
+  "groups": [],
+  "userId": "seeso1@seeso.com",
+  "alias": null,
+  "email": null,
+  "avatar": null,
+  "gender": null,
+  "birthdate": null,
+  "country": null,
+  "mobile": null,
+  "phone": null,
+  "language": null,
+  "currency": null,
+  "timezone": null,
+  "deactivatedAt": null,
+  "lastLoggedInAt": null,
+  "_id": "WUYCQJ3G6JRA",
+  "social": [
+  ],
+  "meta": {
+  },
+  "createdAt": "2020-11-05T05:18:49.396Z",
+  "updatedAt": "2020-11-05T05:18:49.396Z"
+  }
+   */
+
+  const userId = req.params.userId;
+
+
+  const options = {
+    query: {
+      userId: userId,
+    },
+  };
+
+  Customer.list(options, (err, result) => {
+
+    if (err) {
+      res.json(err);
+    } else {
+
+      if(result.data.length === 0) {
+        res.json({result: false, message: "not found user information"});
+        return;
+      }
+
+      Customer.get(result.data[0]._id, (err, result) => {
+
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(result.data);
+        }
+
+      });
+    }
+  });
+
+})
+
+
+/**
+ * @api {delete} /user 사용자 정보 삭제
+ * @apiSampleRequest /user
+ * @apiName 사용자 정보 삭제
+ * @apiGroup User
+ *
+ * @apiParam {String} userId User Unique ID.
+ *
+ * @apiSuccess {String} result Return Result true or false.
+ * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       result: true,
+ *       message: order(information)
+ *     }
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "result": false
+ *       "message": "Error Message"
+ *     }
+ */
+
+router.delete("/", (req, res) => {
+
+  /*
+  {
+  "name": {
+    "first": null,
+    "last": null,
+    "full": null
+  },
+  "address": {
+    "primary": null,
+    "secondaries": []
+  },
+  "connect": true,
+  "verified": false,
+  "groups": [],
+  "userId": "seeso1@seeso.com",
+  "alias": null,
+  "email": null,
+  "avatar": null,
+  "gender": null,
+  "birthdate": null,
+  "country": null,
+  "mobile": null,
+  "phone": null,
+  "language": null,
+  "currency": null,
+  "timezone": null,
+  "deactivatedAt": null,
+  "lastLoggedInAt": null,
+  "_id": "WUYCQJ3G6JRA",
+  "social": [
+  ],
+  "meta": {
+  },
+  "createdAt": "2020-11-05T05:18:49.396Z",
+  "updatedAt": "2020-11-05T05:18:49.396Z"
+  }
+   */
+
+  const userId = req.body.userId;
+
+
+  const options = {
+    query: {
+      userId: userId,
+    },
+  };
+
+  Customer.list(options, (err, result) => {
+
+    if (err) {
+      res.json(err);
+    } else {
+
+      if(result.data.length === 0) {
+        res.json({result: false, message: "not found user information"});
+        return;
+      }
+
+      Customer.delete(result.data[0]._id, (err, result) => {
+
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(result.data);
+        }
+
+      });
+    }
   });
 
 })

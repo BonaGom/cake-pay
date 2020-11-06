@@ -246,8 +246,6 @@ router.get('/list/:token', (req, res, next) => {
 
 });
 
-// 상품 주문 정보
-
 /**
  * @api {get} /order/detail/:orderId 고객의 상품 주문 정보 및 결제 상태 확인
  * @apiSampleRequest /order/detail/:orderId
@@ -281,6 +279,56 @@ router.get("/detail/:orderId", (req, res) => {
     };
 
     Order.get(req.params.orderId, options, (err, result) => {
+
+        if (err) {
+            // Error case
+            console.log(err.code);
+            res.json(err);
+        } else {
+            const headers = result.headers;
+            const data = result.data;
+
+            res.json(data);
+        }
+
+    });
+
+})
+
+////////////////////////////////
+
+/**
+ * @api {get} /order/all/list 주문 전체 목록 보기
+ * @apiSampleRequest /order/all/list
+ * @apiName 주문 전체 목록 보기
+ * @apiGroup Order
+ *
+ * @apiSuccess {String} result Return Result true or false.
+ * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
+ *
+ * @apiDescription #94 - 가입 승인
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       result: true,
+ *       message: JSON(Response Data)
+ *     }
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "result": false
+ *       "message": "Error Message"
+ *     }
+ */
+
+router.get("/all/list", (req, res) => {
+
+    const options = {
+        query: {},
+    };
+
+    Order.list(options, (err, result) => {
 
         if (err) {
             // Error case
