@@ -1,6 +1,6 @@
 define({ "api": [
   {
-    "type": "post",
+    "type": "get",
     "url": "/cart/list/:token",
     "title": "사용자 카트 리스트",
     "sampleRequest": [
@@ -10,19 +10,6 @@ define({ "api": [
     ],
     "name": "__________",
     "group": "Cart",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>User Token.</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -173,7 +160,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "token",
+            "field": "userToken",
             "description": "<p>User Token.</p>"
           }
         ]

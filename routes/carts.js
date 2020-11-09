@@ -93,7 +93,7 @@ router.post('/', function(req, res, next) {
  * @apiGroup Cart
  *
  * @apiParam {String} itemId Cart Item Unique ID.
- * @apiParam {String} token User Token.
+ * @apiParam {String} userToken User Token.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
@@ -129,10 +129,8 @@ router.delete('/', function(req, res, next) {
     */
 
     const body = req.body;
-    const token = body.token;
+    const token = body.userToken;
     const itemId = body.itemId;
-
-    const Cart = Clayful.Cart;
 
     const options = {
         customer: token
@@ -198,12 +196,11 @@ router.post('/all/delete', function(req, res, next) {
 });
 
 /**
- * @api {post} /cart/list/:token 사용자 카트 리스트
+ * @api {get} /cart/list/:token 사용자 카트 리스트
  * @apiSampleRequest /cart/list/deq04j1j13
  * @apiName 사용자 카트 리스트
  * @apiGroup Cart
  *
- * @apiParam {String} token User Token.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
