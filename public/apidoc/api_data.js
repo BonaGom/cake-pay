@@ -1030,7 +1030,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "userId",
+            "field": "userid",
             "description": "<p>User Unique ID or EMail.</p>"
           }
         ]
@@ -1398,7 +1398,7 @@ define({ "api": [
     "groupTitle": "Vendor"
   },
   {
-    "type": "delete",
+    "type": "get",
     "url": "/vendor/detail/:vendorId",
     "title": "입점사 정보 보기",
     "sampleRequest": [

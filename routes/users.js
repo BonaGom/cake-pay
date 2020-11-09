@@ -39,7 +39,7 @@ router.get('/', function(req, res, next) {
  * @apiName 유저 연동 - 클레이풀
  * @apiGroup User
  *
- * @apiParam {String} userId User Unique ID or EMail.
+ * @apiParam {String} userid User Unique ID or EMail.
  *
  * @apiSuccess {String} result Return Result true or false.
  * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
@@ -60,7 +60,7 @@ router.get('/', function(req, res, next) {
 router.post("/", (req, res) => {
 
   const body = req.body;
-  const userId = body.userId;
+  const userId = body.userid;
 
   const payload = {
     connect: true,

@@ -69,12 +69,12 @@ router.post('/', function(req, res, next) {
     const description = body.description;
 
     const payload = {
-        slug: "CAKEAPI1", // unique
+        slug: slug, // unique
         name: {
-            'ko': "HELLO",
+            'ko': name,
         },
         description: {
-            'ko': "Wrold",
+            'ko': description,
         },
         logo: null,
 
@@ -195,7 +195,7 @@ router.delete('/', function(req, res, next) {
 });
 
 /**
- * @api {delete} /vendor/detail/:vendorId 입점사 정보 보기
+ * @api {get} /vendor/detail/:vendorId 입점사 정보 보기
  * @apiSampleRequest /vendor/detail/3djd3sk
  * @apiName 입점사 정보 보기
  * @apiGroup Vendor
