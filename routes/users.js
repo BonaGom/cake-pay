@@ -401,10 +401,10 @@ router.get('/confirm/count/:token', (req, res, next) => {
         const time = data[i].items[0].request;
 
         if(status === "paid" && time !== null) {
-
+          console.log(time);
           const curTime = new Date().getTime();
           const pickUpTime = new Date(time).getTime();
-
+          console.log(curTime + " : " + pickUpTime);
           if(curTime < pickUpTime) {
             ++count;
           }
