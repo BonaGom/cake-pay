@@ -16,6 +16,7 @@
 <div>
     가격: &nbsp;<input type="text" id="money"/><br/>
     수량: &nbsp;<input type="text" id="count"/><br/>
+    시간: &nbsp;<input type="text" id="pickupTime"/><br/>
 </div>
 <br/>
 <button onclick="requestPay()">결제하기</button>
@@ -25,11 +26,12 @@
 
         const money = $("#money").val();
         const count = $("#count").val();
+        const pickupTime = $("#pickupTime").val();
 
         $.ajax({
             url : '/pay',
             type : 'POST',
-            data : 'count='+count+'&id=deathquin&money='+money,
+            data : 'count='+count+'&id=deathquin&money='+money+'&pickupTime='+pickupTime,
             dataType: "json",
             cache: true,
             success : function(result) {

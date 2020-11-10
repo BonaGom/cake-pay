@@ -347,4 +347,77 @@ router.delete("/", (req, res) => {
 
 })
 
+///
+
+
+/**
+ * @api {get} /user/confirm/count/:token 사용자 주문확정 갯수
+ * @apiSampleRequest /user/confirm/count/:token
+ * @apiName 사용자 주문확정 갯수
+ * @apiGroup User
+ *
+ * @apiParam {String} token User Unique Token.
+ *
+ * @apiSuccess {String} result Return Result true or false.
+ * @apiSuccess {String} message result: false ( Return Error Message ), result: true.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       result: true,
+ *       message: order(information)
+ *     }
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "result": false
+ *       "message": "Error Message"
+ *     }
+ */
+
+router.get('/confirm/count/:token', (req, res, next) => {
+
+  const options = {
+    // customer login token
+    customer: req.params.token,
+    query: {},
+  };
+
+  Order.listForMe(options, (err, result) => {
+
+    if (err) {
+      // Error case
+      console.log(err.code);
+      res.json({result:false, message: err.message});
+
+    } else {
+
+      const data = result.data;
+      let count = 0;
+
+      for(let i=0; i<data.length; i++) {
+
+        const status = data[i].status;
+        const time = data[i].items[0].request;
+
+        if(status === "paid" && time !== null) {
+
+          const curTime = new Date().getTime();
+          const pickUpTime = new Date(time).getTime();
+
+          if(curTime < pickUpTime) {
+            ++count;
+          }
+        }
+
+      }
+
+      res.json({result: true, message: count});
+
+    }
+
+  });
+
+});
+
 module.exports = router;

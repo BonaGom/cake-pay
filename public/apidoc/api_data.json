@@ -1013,6 +1013,70 @@
     "groupTitle": "User"
   },
   {
+    "type": "get",
+    "url": "/user/confirm/count/:token",
+    "title": "사용자 주문확정 갯수",
+    "sampleRequest": [
+      {
+        "url": "/user/confirm/count/:token"
+      }
+    ],
+    "name": "___________",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>User Unique Token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Return Result true or false.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>result: false ( Return Error Message ), result: true.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  result: true,\n  message: order(information)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"result\": false\n  \"message\": \"Error Message\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/users.js",
+    "groupTitle": "User"
+  },
+  {
     "type": "post",
     "url": "/user",
     "title": "유저 연동 - 클레이풀",

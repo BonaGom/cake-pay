@@ -60,6 +60,7 @@ router.post("/", (req, res) => {
     const body = req.body;
     const money = body.money;
     const count = body.count;
+    const pickUpTime = body.pickupTime;
 
     const payload = {
         items: [{
@@ -67,7 +68,8 @@ router.post("/", (req, res) => {
             product: 'SMP6QX2SE37R', // Product ID
             variant: 'UMAZ5Z75RB9H', // Variant ID
             quantity: count,
-            price: money
+            price: money,
+            request: pickUpTime
         }],
         address: {
             billing: {
@@ -94,7 +96,7 @@ router.post("/", (req, res) => {
                     full: '홍길동'
                 },
                 mobile: '010-0000-0000',
-                phone: '02-000-0000'
+                phone: '02-000-0000',
             },
         },
         currency: 'KRW',
@@ -103,7 +105,7 @@ router.post("/", (req, res) => {
     };
 
     const options = {
-        customer: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjA3YTMxNGRiZWY2N2Q4MDA1ZGU4Y2FjYWZjMDllNGMxYjc5MWJhNmYyMTgxMDU0NjIyNGZmMmY2Y2JlODc0NjEiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE2MDMzNTUyMjMsImV4cCI6MTYwMzk2MDAyMywic3ViIjoiRE4zNkVQRFVKQTJMIn0.OzumOuYc-Wmh2_UUVnexEgNNZr9FHTUYNLE6ls-w1c8"
+        customer: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjI0YWE4ZTRkZjhkYmU1NjQzZjVkNWYzMmViOGE4MmNlMzc1NTcxNTQ4N2QzNzA1OWZmMDVlNjg5ODZhMDFhMjQiLCJyb2xlIjoiY3VzdG9tZXIiLCJpYXQiOjE2MDQ4ODc3OTMsImV4cCI6MTYwNTQ5MjU5Mywic3ViIjoiRE4zNkVQRFVKQTJMIn0.DqVZyTFQd8n5m8DMQrbmGWwmqgcNPQmXBObS5ovOcTY"
     }
 
     // Cart.checkout('customerId', 'order', payload, ...);
